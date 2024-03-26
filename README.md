@@ -1,4 +1,4 @@
-## The Assignment Rubric:
+## The Assignment's Rubric: (via the instructor)
 1. Your task is to write a program that will play 5 games of rock, paper, scissors with a user, keeping track of the score and printing the final score at the end (winner gets 3 out of 5)
 
 2. The game shall ask the player's name at the very beginning, which will be used in the printing of the final scores (or for taunting the player between rounds if you want to add that)
