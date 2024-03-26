@@ -5,17 +5,17 @@
 import random # Imported lib for rand int
 
 player = input("Enter player username:\n")
-roundnum = 1                                                           # Init counter until round 5 (final round).
-pwins = 0                                                              # Init player win counter.
-ploss = 0                                                              # Init player loss counter.
-ties = 0                                                               # Init tie counter for game.
-lossmsg = "You lost round number"                                      # Round loss message.
-winmsg = "You won round number"                                        # Round win message.
+roundnum = 1                                                        # Init counter until round 5 (final round).
+pwins = 0                                                           # Init player win counter.
+ploss = 0                                                           # Init player loss counter.
+ties = 0                                                            # Init tie counter for game.
+lossmsg = "You lost round number"                                   # Round loss message.
+winmsg = "You won round number"                                     # Round win message.
 
-while roundnum < 6:
+while roundnum < 6:                                                 # Init while loop for gameplay.
     rpsnum = random.randint(0,2)                                       # Value between 0 and 2. Used in below chain.
     userinput = False                                                  # While loop for user input checking.
-    print("ROUND",roundnum)
+    print("            >>> ROUND",roundnum,"<<<")
     
     while userinput == False:    
         userrps = input("Please enter one of the following strings:\n rock    paper    scissors\n> ")
@@ -34,7 +34,9 @@ while roundnum < 6:
         rps = "scissors"
     print("The CPU selected:",rps)
     
-    if userrps == rps: ties = ties+1 ; break                           # Begin if/elif chain for determining winner
+    if userrps == rps:                                                 # Begin if/elif chain for determining winner
+        ties = ties+1
+        print("Round number",roundnum,"was a tie!")
     elif userrps == "rock":
         if rps == "paper":
             ploss = ploss + 1
@@ -57,3 +59,11 @@ while roundnum < 6:
             pwins = pwins + 1
             print(winmsg,roundnum)
     roundnum = roundnum+1
+# Begin final scoreboard print.
+print("\nFINAL SCOREBOARD\n",player,"-",pwins,"\n Computer -",ploss,"\n Ties -",ties)
+if pwins > ploss:
+  print("Congrats ",player,", you win!", sep="")
+elif ploss > pwins:
+  print("I win, better luck next time ",player,"!", sep="")
+else:
+  print("We tie! That was fun, You are a worthy adversary. Let's play again sometime ",player,"!", sep="")
